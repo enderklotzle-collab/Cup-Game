@@ -1,0 +1,27 @@
+#cup1 {
+    width: 200px;
+    height: 200px;
+    display: inline-block;
+    background-image: url("Cup.png");
+    background-size: cover;
+}
+#cup2 {
+    width: 200px;
+    height: 200px;
+    display: inline-block;
+    background-image: url("Cup.png");
+    background-size: cover;
+}
+#cup3 {
+    width: 200px;
+    height: 200px;
+    display: inline-block;
+    background-image: url("Cup.png");
+    background-size: cover;
+}
+.ball-visible {
+    box-shadow: 0 0 50px 0px green
+}
+.ball {
+    
+}
