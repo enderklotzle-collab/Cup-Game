@@ -6,16 +6,18 @@
     <body>
         <script src="logic.js"></script>
         <div id="contrlos">
-            <input type="range" id="swap-count" name="swap-count" min="0" max="20" oninput="this.nextElementSibling.value = this.value" />
-            <output>10</output>
-            <label f10or="swap-count">Swap Count</label>
-            <div id="show-swap-count"></div>
+            <div>
+                <input type="range" id="swap-count" name="swap-count" min="0" max="20" oninput="this.nextElementSibling.value = this.value" />
+                <output>10</output>
+                <label f10or="swap-count">Swap Count</label>
+            <div/>
+            <div>
+                <input type="range" id="cup-count" name="cup-count" min="3" max="8" oninput="this.nextElementSibling.value = this.value" />
+                <output>6</output>
+                <label f10or="swap-count">Cup Count</label>
+            </div>
         </div>
-        <div id="cupContainer">
-            <div id="cup1"></div>
-            <div id="cup2"></div>
-            <div id="cup3"></div>
-        </div>
+        <div id="cupContainer"></div>
         <div id="button">
             <button onclick="shuffle()" id="shuffle-button">Shuffle</button>
         </div>

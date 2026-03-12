@@ -39,12 +39,6 @@ async function shuffle() {
     console.log("Shuffling")
     window.cups = Array.from(cupContainer.children);
     let cups = window.cups
-    let cup1 = document.getElementById("cup1");
-    cup1.addEventListener("click", pickCup)
-    let cup2 = document.getElementById("cup2");
-    cup2.addEventListener("click", pickCup)
-    let cup3 = document.getElementById("cup3");
-    cup3.addEventListener("click", pickCup)
     let randomCupNumForBall = Math.floor(Math.random() * cups.length);
     let randomCupForBall = cups[randomCupNumForBall];
     await addBallToCup(randomCupForBall, randomCupNumForBall);
@@ -65,6 +59,18 @@ async function shuffle() {
     window.readyToPick = true;
     showMessage("Pick a cup");
     
+}
+function addCups() {
+    console.log("add cups called");
+    const cupContainer = document.getElementById("cupContainer");
+    cupContainer.textContent = '';
+    const CUP_COUNT = document.getElementById("cup-count").value;
+    for(let i = 0; i < CUP_COUNT; i++) {
+        const newCup = document.createElement("div");
+        newCup.classList.add("cup");
+        cupContainer.appendChild(newCup);
+        newCup.addEventListener("click", pickCup);
+    }
 }
 
 function shuffleArray(array) {
@@ -97,13 +103,15 @@ function animateSwapCups(cup1, cup2) {
     swapElements(cup1, cup2);
     let cup1End = cup1.getBoundingClientRect();
     let cup2End = cup2.getBoundingClientRect();
-    let cup1Delta = cup1Start.left - cup1End.left;
-    let cup2Delta = cup2Start.left - cup2End.left;
+    let cup1xDelta = cup1Start.left - cup1End.left;
+    let cup2xDelta = cup2Start.left - cup2End.left;
+    let cup1yDelta = cup1Start.top - cup1End.top;
+    let cup2yDelta = cup2Start.top - cup2End.top;
 
     cup1.animate([{
         transforOrigin: 'top left',
         transform: `
-            translate(${cup1Delta}px)
+            translate(${cup1xDelta}px, ${cup1yDelta}px)
         `
     }, {
         transformOrigin: 'top left',
@@ -116,7 +124,7 @@ function animateSwapCups(cup1, cup2) {
     cup2.animate([{
         transforOrigin: 'top left',
         transform: `
-            translate(${cup2Delta}px)
+            translate(${cup2xDelta}px, ${cup2yDelta}px)
         `
     }, {
         transformOrigin: 'top left',
@@ -141,3 +149,9 @@ function swapElements(node1, node2) {
     parent1.insertBefore(node1, nextSibling2);
     parent1.insertBefore(node2, nextSibling1);
 }
+
+function onPageLoad() {
+    addCups();
+    document.getElementById("cup-count").addEventListener("change", addCups);    
+}
+document.addEventListener("DOMContentLoaded", onPageLoad);
