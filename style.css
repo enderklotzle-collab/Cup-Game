@@ -12,3 +12,13 @@
 .ball {
     
 }
+#messages {
+    color: blue;
+}
+h2 {
+    color: blue;
+    text-align: center;
+}
+body {
+    font-family: Anton, sans-serif;
+}
