@@ -22,6 +22,8 @@ async function pickCup(e) {
 }
 
 function reset() {
+    const cupCountSlide = document.getElementById("cup-count");
+    cupCountSlide.disabled = false;
     for(let cup of window.cups) {
         cup.classList.remove("ball");
     }
@@ -31,6 +33,8 @@ function reset() {
     shuffleButton.disabled = false;
 }
 async function shuffle() {
+    const cupCountSlide = document.getElementById("cup-count");
+    cupCountSlide.disabled = true;
     window.readyToPick = false;
     let shuffleButton = document.getElementById("shuffle-button");
     shuffleButton.disabled = true;
