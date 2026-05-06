@@ -8,7 +8,12 @@
         <script src="logic.js"></script>
         <div id="contrlos">
             <div>
-                <input type="range" id="swap-count" name="swap-count" min="0" max="20" oninput="this.nextElementSibling.value = this.value" />
+                <input type="range" id="swap-speed" name="swap-speed" min="300" max="500" oninput="this.nextElementSibling.value = this.value" value="300" />
+            <output>300</output>
+            <label f10or="swap-speed">Swap Speed ms</label>
+            </div>
+            <div>
+                <input type="range" id="swap-count" name="swap-count" min="0" max="40" oninput="this.nextElementSibling.value = this.value" value="10" />
                 <output>10</output>
                 <label f10or="swap-count">Swap Count</label>
             <div/>

@@ -17,13 +17,17 @@ async function pickCup(e) {
         console.log("LOOSE!!!");
         showMessage("LOOSE!!!")
     }
-    await sleep(1000)
+    await sleep(2000)
     reset();
 }
 
 function reset() {
     const cupCountSlide = document.getElementById("cup-count");
+    const cupSpeedSlide = document.getElementById("swap-speed");
+    const cupSwapsSlide = document.getElementById("swap-count");
     cupCountSlide.disabled = false;
+    cupSpeedSlide.disabled = false;
+    cupSwapsSlide.disabled = false;
     for(let cup of window.cups) {
         cup.classList.remove("ball");
     }
@@ -33,8 +37,12 @@ function reset() {
     shuffleButton.disabled = false;
 }
 async function shuffle() {
+    const cupSpeedSlide = document.getElementById("swap-speed");
+    const cupSwapsSlide = document.getElementById("swap-count");
     const cupCountSlide = document.getElementById("cup-count");
     cupCountSlide.disabled = true;
+    cupSpeedSlide.disabled = true;
+    cupSwapsSlide.disabled = true;
     window.readyToPick = false;
     let shuffleButton = document.getElementById("shuffle-button");
     shuffleButton.disabled = true;
@@ -58,10 +66,13 @@ async function shuffle() {
         console.log(randomCupNum1);
         console.log(randomCupNum2);
         animateSwapCups(randomCup1, randomCup2);
-        await sleep(500);
+        const CUP_SPEED = document.getElementById("swap-speed").value;
+        await sleep(CUP_SPEED);
     }
     window.readyToPick = true;
     showMessage("Pick a cup");
+    await sleep(2000);
+    showMessage("");
     
 }
 function addCups() {

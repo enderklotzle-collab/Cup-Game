@@ -7,7 +7,7 @@
 }
 
 .ball-visible {
-    box-shadow: 0 0 50px 0px green
+    box-shadow: 0 0 50px 0px green;
 }
 .ball {
     
@@ -21,4 +21,12 @@ h2 {
 }
 body {
     font-family: Anton, sans-serif;
+}
+#messages {
+    position: fixed;
+    z-index: 9999;
+    top: 35%;
+    left: 35%;
+    font-size: 100px;
+    box-shadow: 0 0 50px 0px black;
 }
